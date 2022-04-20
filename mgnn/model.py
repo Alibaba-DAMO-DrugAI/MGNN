@@ -1,6 +1,6 @@
 import torch.nn as nn
 import torch.nn.functional as F
-from layers import GraphConvolution, SumAttention
+from layers import GraphConvolution
 import torch
 
 class GCN(nn.Module):
@@ -13,7 +13,6 @@ class GCN(nn.Module):
         self.dropout = dropout
         self.gc2 = GraphConvolution(nhid[0], nhid[1]) # [N,36,n_node,nhid0->nhid1]
 
-        self.sum = SumAttention(nhid[1])
         self.fc0 = nn.Linear(nhid[1],nhid[2]) #[N,nhid2] -> [N, nhid1]
         self.bn = nn.BatchNorm1d(nhid[2])
         self.relu = nn.ReLU()
@@ -29,9 +28,9 @@ class GCN(nn.Module):
         self.fc = nn.Linear(nhid4, 1)
 
     def forward(self, x, adj):
-        f = F.relu(self.gc1(x, adj))
+        f = F.relu(self.gc1(x))
         f = F.dropout(f, self.dropout, training=self.training)
-        f = self.gc2(f, adj) # [batchsize,36,n_node,n_heat]
+        f = self.gc2(f) # [batchsize,36,n_node,n_heat]
         f = torch.sum(f, axis=2).reshape([-1,self.nhid1])
         f = self.relu(self.bn(self.fc0(f))).reshape([-1,self.nsub*self.nhid2])
         f = self.relu1(self.bn1(self.fc1(f)))
