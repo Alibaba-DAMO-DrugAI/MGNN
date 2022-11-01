@@ -18,7 +18,7 @@ and [PDBbind2019 general set minus refined set](http://www.pdbbind.org.cn/downlo
 [5] SARS-CoV-BA (already downloaded)
 
 ## Requirements
-  * [PDB2PQR](https://github.com/Electrostatics/pdb2pqr): calculating the partial charge for atoms in complex. Install to ```mgnn/pdb2pqr ```. 
+  * [PDB2PQR 2.1.1](https://github.com/Electrostatics/pdb2pqr): calculating the partial charge for atoms in complex. Install to ```mgnn/pdb2pqr ```. 
   * [Open Babel 2.3.90](http://openbabel.org/wiki/Main_Page): transferring the molecule complex into different file formats.
   * PyTorch 1.7
   * Python 3.8
@@ -69,9 +69,11 @@ You can achieve this by adding argument ```--gpu=x``` to the bash file.
 
 If you find our work helpful in your research or work, please cite us.
 
-Multiphysical graph neural network (MP-GNN) for COVID-19 drug design at Nature Machine Intelligence, 2022.
+Multiphysical graph neural network (MP-GNN) for COVID-19 drug design at Briefings in Bioinformatics, 2022. （https://doi.org/10.1093/bib/bbac231）
 
 ## Questions & Problems
 If you have any questions or problems, please feel free to open a new issue. We will fix the new issue ASAP. You can also email the maintainers and authors below.
 
-Xiaoshuang Li, Ying Chi (lixiaoshuang@sjtu.edu.cn, xinyi.cy@alibaba-inc.com)
+Xiaoshuang Li, Ying Chi (lixiaoshuang@sjtu.edu.cn, ying.chi@basenbyte.com)
+
+Ying Chi was previously with Alibaba DAMO Academy, directing AI for Drug Discovery team. Now is the co-founder and Chief Technology Officer in Base & Byte Biotechnology Co. Ltd.  
